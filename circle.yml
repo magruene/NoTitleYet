@@ -30,6 +30,8 @@ dependencies:
 test:
   override:
     - yarn run test
+  post:
+    - mv reports $CIRCLE_ARTIFACTS/reports
 
 # Deployment
 
