@@ -31,7 +31,7 @@ test:
   override:
     - yarn run test
   post:
-    - mv reports $CIRCLE_ARTIFACTS/reports
+    - mv reports $CIRCLE_TEST_REPORTS/reports
 
 # Deployment
 
