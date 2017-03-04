@@ -10,7 +10,6 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('karma-junit-reporter'),
       require('@angular/cli/plugins/karma')
     ],
     client:{
@@ -26,7 +25,7 @@ module.exports = function (config) {
       'text/x-typescript': ['ts','tsx']
     },
     junitReporter: {
-      outputDir: $CIRCLE_ARTIFACTS + '/reports', // results will be saved as $outputDir/$browserName.xml
+      outputDir: '', // results will be saved as $outputDir/$browserName.xml
       outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
       suite: '', // suite will become the package name attribute in xml testsuite element
       useBrowserName: true, // add browser name to report and classes names
