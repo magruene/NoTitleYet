@@ -1,0 +1,25 @@
+<h1 md-dialog-title>Welcome</h1>
+<div md-dialog-content>
+  <p>I need some info about you to continue:</p>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input [(ngModel)]="summoner" mdInput placeholder="Summoner name">
+        </md-input-container>
+      </td>
+      <td>
+        <ng-container *ngIf="regions">
+          <md-select [(ngModel)]="selectedRegion" placeholder="Region" name="region">
+            <md-option *ngFor="let region of regions" [value]="region">
+              {{region}}
+            </md-option>
+          </md-select>
+        </ng-container>
+      </td>
+    </tr>
+  </table>
+</div>
+<div md-dialog-actions>
+  <button md-button (click)="dialogRef.close({summoner: summoner, region: selectedRegion})">Go</button>
+</div>

@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import { LeagueService } from './league.service'
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,38 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor() {
+  summoner: string;
+  selectedRegion: string;
+
+  constructor(public dialog: MdDialog) {}
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogResultExampleDialog);
+    dialogRef.afterClosed().subscribe((result) => {
+      this.summoner = result.summoner;
+      this.selectedRegion = result.region;
+      console.log(result)
+    });
   }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.openDialog();
+    }, 1);
+  }
+}
+
+@Component({
+  selector: 'dialog-result-example-dialog',
+  templateUrl: './login-dialog.html',
+})
+export class DialogResultExampleDialog {
+  regions: object;
+
+  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>, private leagueService: LeagueService) {
+  }
+  ngAfterViewInit(): void {
+    this.leagueService.getRegions().subscribe(regions => this.regions = regions);
+  }
+
 }

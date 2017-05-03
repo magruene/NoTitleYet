@@ -1,7 +1,7 @@
   <md-sidenav-container>
 
     <md-sidenav #sidenav mode="side" class="app-sidenav" opened="true">
-      <app-summoner></app-summoner>
+      <app-summoner *ngIf="summoner && selectedRegion" [summonerName]="summoner" [region]="selectedRegion"></app-summoner>
       <md-nav-list>
         <a md-button (click)="start.close()">Close</a>
         <br>
@@ -25,9 +25,6 @@
     </md-toolbar>
 
     <div class="app-content">
-
-      <app-summoner></app-summoner>
-
       <md-card>
         <button md-button>FLAT</button>
         <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>

@@ -10,6 +10,7 @@ import {
   MdGridListModule } from '@angular/material';
 
 import { SummonerComponent } from './summoner.component';
+import { LeagueService } from '../league.service';
 
 describe('SummonerComponent', () => {
   let component: SummonerComponent;
@@ -27,7 +28,8 @@ describe('SummonerComponent', () => {
         MdInputModule,
         MdIconModule,
         MdGridListModule
-      ]
+      ],
+      providers: [LeagueService]
     })
     .compileComponents();
   }));

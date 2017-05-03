@@ -11,15 +11,21 @@ export class LeagueService {
   constructor(private http: Http) {
   }
 
-  getSummoner(name): Observable<Summoner> {
+  getSummoner(name, region): Observable<Summoner> {
     return this.http
-      .get(`${this.baseUrl}/summoner/by-name/${name}`, {headers: LeagueService.getHeaders()})
-      .map(LeagueService.toPerson);
+      .get(`${this.baseUrl}/summoner/by-name/${name}?region=${region}`, {headers: LeagueService.getHeaders()})
+      .map(respose => {
+        return LeagueService.toPerson(respose.json());
+      });
   }
 
-  private static toPerson(r: any): Summoner {
-    let response = r.json();
+  getRegions(): Observable<object> {
+    return this.http
+      .get(`${this.baseUrl}/region`, {headers: LeagueService.getHeaders()})
+      .map(respose => respose.json());
+  }
 
+  static toPerson(response: any): Summoner {
     let summoner = <Summoner>({
       level: response.summonerLevel,
       icon: response.profileIconId,
@@ -29,7 +35,7 @@ export class LeagueService {
     return summoner;
   }
 
-  private static getHeaders() {
+  static getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     return headers;

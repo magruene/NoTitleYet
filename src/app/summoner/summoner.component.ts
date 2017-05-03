@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { LeagueService } from '../league.service'
 import {Summoner} from "./summoner";
 
@@ -8,6 +8,9 @@ import {Summoner} from "./summoner";
   styleUrls: ['./summoner.component.css']
 })
 export class SummonerComponent implements OnInit {
+  @Input() summonerName:string;
+  @Input() region:string;
+
   summoner:Summoner;
   leagueService:LeagueService;
 
@@ -16,7 +19,7 @@ export class SummonerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.leagueService.getSummoner("Cl4nnad").subscribe(s => this.summoner = s);
+    this.leagueService.getSummoner(this.summonerName, this.region).subscribe(s => this.summoner = s);
   }
 
 }
