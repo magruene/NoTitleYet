@@ -1,21 +1,41 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import { AppComponent, DialogContent } from './app.component';
-import { MaterialModule } from '@angular/material';
+import { AppComponent } from './app.component';
+import {
+  MdCardModule,
+  MdButtonModule,
+  MdToolbarModule,
+  MdSidenavModule,
+  MdCheckboxModule,
+  MdInputModule,
+  MdIconModule,
+  MdGridListModule } from '@angular/material';
+
 import "hammerjs";
+
+import {SummonerComponent} from './summoner/summoner.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MaterialModule],
+      imports: [
+        MdCardModule,
+        MdButtonModule,
+        MdToolbarModule,
+        MdSidenavModule,
+        MdCheckboxModule,
+        MdInputModule,
+        MdIconModule,
+        MdGridListModule
+      ],
       declarations: [
         AppComponent,
-        DialogContent
+        SummonerComponent
       ],
     }).compileComponents();
   }));
 
-  it('should create the app', (done) => {
+  fit('should create the app', (done) => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const app = fixture.debugElement.componentInstance;

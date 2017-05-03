@@ -1,30 +1,48 @@
 import 'hammerjs';
-import { MaterialModule } from '@angular/material';
+import {
+  MdCardModule,
+  MdButtonModule,
+  MdToolbarModule,
+  MdSidenavModule,
+  MdCheckboxModule,
+  MdInputModule,
+  MdIconModule,
+  MdGridListModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import {AppComponent, DialogContent} from './app.component';
+import {LeagueService} from './league.service';
+
+import {AppComponent} from './app.component';
+import { SummonerComponent } from './summoner/summoner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogContent
+    SummonerComponent
   ],
   entryComponents: [
-    DialogContent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MaterialModule
+    MdCardModule,
+    MdButtonModule,
+    MdToolbarModule,
+    MdSidenavModule,
+    MdCheckboxModule,
+    MdInputModule,
+    MdIconModule,
+    MdGridListModule
   ],
-  providers: [],
+  providers: [{provide: LeagueService, useClass: LeagueService}],
   bootstrap: [AppComponent],
   exports: [
-    MaterialModule
   ]
 })
 export class AppModule { }

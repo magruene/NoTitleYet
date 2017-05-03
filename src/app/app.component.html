@@ -1,7 +1,7 @@
-  <md-sidenav-container [class.m2app-dark]="isDarkTheme">
+  <md-sidenav-container>
 
     <md-sidenav #sidenav mode="side" class="app-sidenav" opened="true">
-      <img src="../assets/500full-alexandra-daddario.jpg">
+      <app-summoner></app-summoner>
       <md-nav-list>
         <a md-button (click)="start.close()">Close</a>
         <br>
@@ -22,10 +22,11 @@
       <div id="title">Angular Material2 Example App</div>
 
       <span class="app-toolbar-filler"></span>
-      <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
     </md-toolbar>
 
     <div class="app-content">
+
+      <app-summoner></app-summoner>
 
       <md-card>
         <button md-button>FLAT</button>
@@ -64,78 +65,10 @@
           <input mdInput placeholder="Favorite food" value="Sushi">
         </md-input-container>
       </md-card>
-
-      <md-card>
-        <md-list class="app-list">
-          <md-list-item *ngFor="let food of foods">
-            <h3 md-line>{{food.name}}</h3>
-            <p md-line class="demo-secondary-text">{{food.rating}}</p>
-          </md-list-item>
-        </md-list>
-      </md-card>
-
-      <md-card>
-        <md-spinner class="app-spinner"></md-spinner>
-        <md-spinner color="accent" class="app-spinner"></md-spinner>
-      </md-card>
-
-      <md-card>
-        <label>
-          Indeterminate progress-bar
-          <md-progress-bar
-            class="app-progress"
-            mode="indeterminate"
-            aria-label="Indeterminate progress-bar example"></md-progress-bar>
-        </label>
-
-        <label>
-          Determinate progress bar - {{progress}}%
-          <md-progress-bar
-            class="app-progress"
-            color="accent"
-            mode="determinate"
-            [value]="progress"
-            aria-label="Determinate progress-bar example"></md-progress-bar>
-        </label>
-      </md-card>
-
-      <md-card>
-        <md-tab-group>
-          <md-tab label="Earth">
-            <p>EARTH</p>
-          </md-tab>
-          <md-tab label="Fire">
-            <p>FIRE</p>
-          </md-tab>
-        </md-tab-group>
-      </md-card>
-
-      <md-card>
-        <md-icon>build</md-icon>
-      </md-card>
-
-      <md-card>
-        <button md-button [md-menu-trigger-for]="menu">
-          MENU
-        </button>
-      </md-card>
-
-      <md-menu #menu="mdMenu">
-        <button md-menu-item>Lemon</button>
-        <button md-menu-item>Lime</button>
-        <button md-menu-item>Banana</button>
-      </md-menu>
-
-      <md-card>
-        <p>Last dialog result: {{lastDialogResult}}</p>
-        <button md-raised-button (click)="openDialog()">DIALOG</button>
-        <button md-raised-button (click)="showSnackbar()">SNACKBAR</button>
-      </md-card>
-
     </div>
 
   </md-sidenav-container>
 
-  <span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <span class="app-action">
     <button md-fab><md-icon>check circle</md-icon></button>
   </span>
