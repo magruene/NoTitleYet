@@ -12,4 +12,10 @@ describe('no-title-yet App', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Angular Material2 Example App');
   });
+
+  it('should be able to fill out dialog', () => {
+    page.navigateTo();
+    page.assertDialogIsDisplayed();
+    page.fillDialogContent("Cl4nnad", "EUW");
+  });
 });

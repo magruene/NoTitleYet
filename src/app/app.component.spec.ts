@@ -9,7 +9,8 @@ import {
   MdCheckboxModule,
   MdInputModule,
   MdIconModule,
-  MdGridListModule } from '@angular/material';
+  MdGridListModule,
+  MdDialogModule} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -31,7 +32,8 @@ describe('AppComponent', () => {
         MdInputModule,
         MdIconModule,
         MdGridListModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MdDialogModule
       ],
       declarations: [
         AppComponent,
