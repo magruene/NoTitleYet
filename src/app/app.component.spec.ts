@@ -10,7 +10,8 @@ import {
   MdInputModule,
   MdIconModule,
   MdGridListModule,
-  MdDialogModule} from '@angular/material';
+  MdDialogModule, MdRadioModule
+} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,7 +19,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import "hammerjs";
 
 import {SummonerComponent} from './summoner/summoner.component';
-import {LeagueService} from './league.service';
+import {LeagueService} from './services/league.service';
+import {RouterModule} from "@angular/router";
+import {SummonerInfoComponent} from "./summoner-info/summoner-info.component";
+import {SearchSummonerComponent} from "./search-summoner/search-summoner.component";
+import {ActiveGameComponent} from "./active-game/active-game.component";
+import {FormsModule} from "@angular/forms";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -33,11 +40,17 @@ describe('AppComponent', () => {
         MdIconModule,
         MdGridListModule,
         BrowserAnimationsModule,
-        MdDialogModule
+        MdDialogModule,
+        RouterTestingModule,
+        FormsModule,
+        MdRadioModule
       ],
       declarations: [
         AppComponent,
-        SummonerComponent
+        SummonerComponent,
+        SummonerInfoComponent,
+        SearchSummonerComponent,
+        ActiveGameComponent
       ],
       providers: [LeagueService]
     }).compileComponents();

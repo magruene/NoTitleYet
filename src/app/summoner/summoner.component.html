@@ -1,11 +1,7 @@
-<md-card *ngIf="summoner">
-  <div class="container">
-    <div ><img src="http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/{{summoner.icon}}.png"/></div>
-    <div>
-      <p>Name: {{summoner.name}}</p>
-      <p>Name: {{summoner.level}}</p>
-    </div>
-    <div></div>
-    <div></div>
-  </div>
-</md-card>
+<div fxLayout
+     fxLayoutAlign="center"
+     fxLayout.xs="column"
+     fxLayoutGap="10px">
+    <app-summoner-info fxFlex="10%"></app-summoner-info>
+    <app-active-game fxFlex></app-active-game>
+</div>

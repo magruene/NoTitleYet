@@ -1,0 +1,27 @@
+<md-card class="container"
+     fxLayout
+     fxLayoutAlign="center"
+     fxLayout.xs="column"
+     fxLayoutGap="10px">
+  <div *ngIf="!activeGame" fxflex><md-spinner></md-spinner></div>
+  <div *ngIf="activeGame" id="blueTeam" fxFlex>
+    <md-list>
+      <h3 md-subheader>Blue team</h3>
+      <md-list-item *ngFor="let participant of activeGame.blueTeam">
+        <img style="height: 48px; width: 48px;" src="http://ddragon.leagueoflegends.com/cdn/7.10.1/img/champion/{{participant.championInfo.champion.image.full}}"/>
+        <h4 md-line>{{participant.participant.summonerName}}</h4>
+        <p md-line> - </p>
+      </md-list-item>
+    </md-list>
+  </div>
+  <div *ngIf="activeGame" id="redTeam" fxFlex>
+    <md-list>
+      <h3 md-subheader>Red team</h3>
+      <md-list-item *ngFor="let participant of activeGame.redTeam">
+        <img style="height: 48px; width: 48px;" src="http://ddragon.leagueoflegends.com/cdn/7.10.1/img/champion/{{participant.championInfo.champion.image.full}}"/>
+        <h4 md-line>{{participant.participant.summonerName}}</h4>
+        <p md-line> - </p>
+      </md-list-item>
+    </md-list>
+  </div>
+</md-card>

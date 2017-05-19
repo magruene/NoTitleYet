@@ -8,6 +8,9 @@
     "lib": [
       "es2016"
     ],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
     "outDir": "../dist/out-tsc-e2e",
     "module": "commonjs",
     "target": "es6",

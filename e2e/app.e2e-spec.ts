@@ -1,21 +1,25 @@
-import { NoTitleYetPage } from './app.po';
+import { SearchSummonerPage } from './search-summoner.po';
+import {SummonerHomePage} from "./summoner-home.po";
 
 describe('no-title-yet App', () => {
-  let page: NoTitleYetPage;
+  let summonerSearch: SearchSummonerPage;
+  let summonerHome: SummonerHomePage;
 
   beforeEach(() => {
-    page = new NoTitleYetPage();
+    summonerSearch = new SearchSummonerPage();
+    summonerHome = new SummonerHomePage();
   });
 
   it('should display message saying app works', () => {
 
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Angular Material2 Example App');
+    summonerSearch.navigateTo();
+    expect(summonerSearch.getParagraphText()).toEqual('NoTitleYet');
   });
 
   it('should be able to fill out dialog', () => {
-    page.navigateTo();
-    page.assertDialogIsDisplayed();
-    page.fillDialogContent("Cl4nnad", "EUW");
+    summonerSearch.navigateTo();
+    summonerSearch.searchSummoner("Cl4nnad", "EUW");
+    expect(summonerHome.getSummonerLevel()).toContain("30");
+    expect(summonerHome.getSummonerName()).toContain("Cl4nnad");
   });
 });

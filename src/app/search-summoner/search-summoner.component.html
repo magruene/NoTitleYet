@@ -1,0 +1,30 @@
+<div class="search-box">
+  <div class="search-scouter">
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <md-input-container style="width: 80%" fxflex="600px">
+        <input [(ngModel)]="summoner" name="summonerName" mdInput placeholder="Search summoner">
+      </md-input-container>
+      <button id="searchBtn" (click)="searchSummoner()" color="primary" md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
+    </div>
+
+    <div class="container"
+         fxLayout
+         fxLayout.xs="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="10px"
+         fxLayoutGap.xs="0">
+      <div class="new-button-wrapper j-noxia-search">
+        <md-radio-group class="example-radio-group" [(ngModel)]="selectedRegion">
+          <md-radio-button class="example-radio-button" *ngFor="let region of regions" [value]="region">
+            {{region}}
+          </md-radio-button>
+        </md-radio-group>
+      </div>
+    </div>
+  </div>
+</div>

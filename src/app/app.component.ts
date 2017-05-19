@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import { LeagueService } from './league.service'
+import { LeagueService } from './services/league.service'
 
 
 @Component({
@@ -12,7 +12,9 @@ export class AppComponent {
   summoner: string;
   selectedRegion: string;
 
-  constructor(public dialog: MdDialog) {}
+  constructor(public dialog: MdDialog, private leagueService: LeagueService) {
+    this.leagueService = leagueService;
+  }
 
   openDialog() {
     let dialogRef = this.dialog.open(DialogResultExampleDialog);
@@ -24,9 +26,9 @@ export class AppComponent {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.openDialog();
-    }, 1);
+    // setTimeout(() => {
+    //   this.openDialog();
+    // }, 1);
   }
 }
 

@@ -7,23 +7,21 @@ import {
   MdCheckboxModule,
   MdInputModule,
   MdIconModule,
-  MdGridListModule } from '@angular/material';
+  MdGridListModule,
+  MdProgressSpinnerModule} from '@angular/material';
 
-import { SummonerComponent } from './summoner.component';
+import { SummonerInfoComponent } from './summoner-info.component';
 import { LeagueService } from '../services/league.service';
-import {SummonerInfoComponent} from "../summoner-info/summoner-info.component";
-import {ActiveGameComponent} from "../active-game/active-game.component";
-import {SessionInfoService} from "../services/session-info.service";
+import { SessionInfoService } from '../services/session-info.service';
 import {Router} from "@angular/router";
-import {RouterTestingModule} from "@angular/router/testing";
 
-describe('SummonerComponent', () => {
-  let component: SummonerComponent;
-  let fixture: ComponentFixture<SummonerComponent>;
+describe('SummonerInfoComponent', () => {
+  let component: SummonerInfoComponent;
+  let fixture: ComponentFixture<SummonerInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummonerComponent, SummonerInfoComponent, ActiveGameComponent ],
+      declarations: [ SummonerInfoComponent ],
       imports: [
         MdCardModule,
         MdButtonModule,
@@ -33,15 +31,15 @@ describe('SummonerComponent', () => {
         MdInputModule,
         MdIconModule,
         MdGridListModule,
-        RouterTestingModule
+        MdProgressSpinnerModule
       ],
-      providers: [LeagueService, SessionInfoService]
+      providers: [LeagueService, SessionInfoService, { provide: Router, useClass: class { navigateByUrl = jasmine.createSpy("navigateByUrl"); } }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SummonerComponent);
+    fixture = TestBed.createComponent(SummonerInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
